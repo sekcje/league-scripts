@@ -10,8 +10,6 @@
   <br>
 </p>
 
-LeagueToolkit is an application made for extracting, reading, modifying and sending back data from the updated League of Legends client. This includes data like a player's level, rank, wins and losses and a bunch more stuff, which can be changed with this app.
-
 "TempName" is a fork from [LeagueToolkit](https://github.com/4dams/LeagueToolkit), different from the original project this application is a set of useful scripts like an auto queue accept, an automatic chat message whenever you press a configured button, changes the lol language or show your mastery emote whenever you use the zed ultimate for example.
 
 If you want to know more about this process and how it works exactly, please check out [this post on the Riot Games Engineering Blog](https://engineering.riotgames.com/news/architecture-league-client-update)!
