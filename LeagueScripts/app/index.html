@@ -5,7 +5,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 <html>
 
 <head>
-  <title>League Toolkit</title>
+  <title>League Scripts</title>
   <script src="browser.js"></script>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -24,18 +24,19 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
     <div class="sections">
 
       <div class="tab-container">
-        <img src="assets/ui/selected.png" id="selected" class="selected" draggable="false"></img>
+        <img src="assets/ui/selected.png" id="selected" class="selected" draggable="false">
         <div class="tab">
           <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
           <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
           <button class="tablinks" onclick="openTab(event, 'Champ Select')">Champ Select</button>
           <button class="tablinks" onclick="openTab(event, 'Miscellaneous')">Miscellaneous</button>
+          <button class="tablinks" onclick="openTab(event, 'Scripts')">Scripts</button>
         </div>
 
         <div class="controls">
-          <button onclick="minimize_app();"><i class="material-icons icon">remove</i></button>
+          <button onclick="minimize_app()"><i class="material-icons icon">remove</i></button>
           <button><i class="material-icons icon">bug_report</i></button>
-          <button onclick="exit_app();"><i class="material-icons icon">clear</i></button>
+          <button onclick="exit_app()"><i class="material-icons icon">clear</i></button>
         </div>
       </div>
 
@@ -368,6 +369,22 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                     <div>
                         <button type="button" id="reset" onClick="" class="float-left">Save</button><button type="button" id="reset" onClick="">Restore</button>
                     </div> -->
+
+        </div>
+
+      </div>
+
+      <div id="Scripts" class="tabcontent">
+
+        <div class="box ">
+
+          <!-- RESTORE PROFILE -->
+
+          <p class="option-name">Scripts will be here</p>
+
+          <div>
+            <button type="button" id="Test" onClick="">Test button</button>
+          </div>
 
         </div>
 
