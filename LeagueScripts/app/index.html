@@ -303,7 +303,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
           <!-- CHAMP SELECT -->
 
-          <!-- <p class="option-name">Champion Select</p>
+          <p class="option-name">Champion Select</p>
 
                     <p class="suboption-name">Auto Ban Champion</p>
                     <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
@@ -330,7 +330,7 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
                     </div>
                     <div class="options">
                         <label><input type="checkbox" disabled>Enabled</label>
-                    </div> -->
+                    </div>
 
         </div>
 
@@ -378,13 +378,38 @@ Copyright (c) 2018 by 4dams. All Rights Reserved.
 
         <div class="box ">
 
-          <!-- RESTORE PROFILE -->
+          <!-- SCRIPTS -->
 
-          <p class="option-name">Scripts will be here</p>
+          <p class="option-name">Scripts</p>
 
+          <p class="suboption-name">In-game chat Message</p>
           <div>
-            <button type="button" id="Test" onClick="">Test button</button>
+            <textarea rows="4" cols="46" placeholder="This message will be send when i press a button" style="white-space: initial;" id="message"></textarea>
+          
+            <br/>
+
+            <select id="message-scoop" class="dropdown">
+              <option value="*" selected disabled>Send To</option>
+              <option value="all">All</option>
+              <option value="team">Team</option>
+            </select>
+
+            <select id="button" class="dropdown">
+              <option value="*" selected disabled>Button</option>
+              <option value="NUMPAD0">NUMPAD 0</option>
+              <option value="NUMPAD1">NUMPAD 1</option>
+              <option value="NUMPAD2">NUMPAD 2</option>
+              <option value="NUMPAD3">NUMPAD 3</option>
+            </select>
+
+            <br/>
+
+            <div class="options">
+              <label><input type="checkbox" onchange="">ASCII text</label>
+            </div>
           </div>
+          
+          <button type="button" onClick="">Save</button>
 
         </div>
 
