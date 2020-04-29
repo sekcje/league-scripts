@@ -379,6 +379,10 @@ function openTab(evt, tabName) {
 		document.getElementById("selected").style.marginLeft = "473px"
 	}
 
+	if (tabName == "Scripts") {
+		document.getElementById("selected").style.marginLeft = "640px"
+	}
+
 	// Get all elements with class="tabcontent" and hide them
 	tabcontent = document.getElementsByClassName("tabcontent")
 	for (i = 0; i < tabcontent.length; i++) {
