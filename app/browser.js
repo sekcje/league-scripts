@@ -1,6 +1,6 @@
 const version = require('../version.json');
 var currentVersion = version['league-scripts-version'];
-var gameVersion;
+var gameVersion = version['game-version'];
 var repository = "https://github.com/hugogomess/league-scripts";
 
 const electron = require('electron');
@@ -11,12 +11,6 @@ var isActive;
 var level;
 var icon;
 var summoner;
-
-function submitLevel() {
-	level = document.getElementById("level").value;
-	ipcRenderer.send('submitLevel', level);
-	document.getElementById("profileLevel").innerHTML = level;
-}
 
 function submitStatus() {
 	status = document.getElementById("status").value;
@@ -59,7 +53,7 @@ async function profileUpdate() {
 			}
 		} else {
 			clientIcon = data.iconID;
-			let profileLevel = (data.level) || document.getElementById("profileWL").innerHTML || "";
+			let profileLevel = (data.level) || "";
 
 			document.getElementById("profileName").innerHTML = summoner || data.name;
 			document.getElementById("profileLevel").innerHTML = level || profileLevel;
@@ -144,13 +138,6 @@ function toggleAutoAccept(element) {
 	}
 }
 
-function toggleInvDecline(element) {
-	if (element.checked) {
-		ipcRenderer.send('invDecline', true)
-	} else {
-		ipcRenderer.send('invDecline', false)
-	}
-}
 
 ipcRenderer.send('requestVersionCheck')
 setInterval(function() {
@@ -174,15 +161,3 @@ ipcRenderer.on('versions', (event, appVersion, leagueGameVersion) => {
 		versionElement.innerHTML = "V" + currentVersion + " (beta)";
 	}
 })
-
-function saveIgnored() {
-	let ignored = document.getElementById("ignored").value
-	let names = ignored.split(", ")
-	ipcRenderer.send('saveIgnored', names)
-}
-
-setInterval(function() {
-	if (level) {
-		ipcRenderer.send('submitLevel', level);
-	}
-}, 20000)

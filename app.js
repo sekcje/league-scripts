@@ -13,8 +13,6 @@ const env = process.env.NODE_ENV;
 
 // Setting default settings
 var autoAccept_enabled = false
-var invDecline_enabled = false
-var ignoredDeclines = []
 
 // Extracting some stuff from electron
 const {
@@ -121,27 +119,6 @@ ipcMain.on('minimize_app', function() {
 	mainWindow.minimize()
 })
 
-ipcMain.on('submitLevel', (event, level) => {
-	if (!routes) return;
-
-	let url = routes.Route("submitLevel")
-	let body = {
-		url: url,
-		"rejectUnauthorized": false,
-		headers: {
-			Authorization: routes.getAuth()
-		},
-		json: {
-			"lol": {
-				"level": level.toString()
-			}
-		}
-	}
-
-	request.put(body)
-
-})
-
 ipcMain.on('submitStatus', (event, status) => {
 	if (!routes) return;
 
@@ -217,14 +194,6 @@ ipcMain.on('autoAccept', (event, int) => {
 	}
 })
 
-ipcMain.on('invDecline', (event, int) => {
-	if (int) {
-		invDecline_enabled = true
-	} else {
-		invDecline_enabled = false
-	}
-})
-
 function IsJsonString(str) {
 	try {
 		JSON.parse(str)
@@ -278,60 +247,7 @@ var autoAccept = function() {
 	}, 1000)
 }
 
-function autoDecline() {
-	setInterval(function() {
-		if (!routes) return
-
-		let url = routes.Route("invDecline")
-		let body = {
-			url: url,
-			"rejectUnauthorized": false,
-			headers: {
-				Authorization: routes.getAuth()
-			},
-		}
-
-		let callback = function(error, response, body) {
-			if (!body || !IsJsonString(body)) return
-
-			var data = JSON.parse(body)
-
-			if (data.length > 0) {
-				if (typeof data[0].invitationId !== 'undefined') {
-
-					if (!ignoredDeclines.includes(data[0].fromSummonerName)) {
-
-						let declineUrl = routes.Route("invDecline") + "/" + data[0].invitationId + "/decline"
-
-						let declineBody = {
-							url: declineUrl,
-							"rejectUnauthorized": false,
-							headers: {
-								Authorization: routes.getAuth()
-							},
-							json: {}
-						}
-
-						if (invDecline_enabled) {
-							request.post(declineBody)
-						}
-
-					}
-				}
-			}
-		}
-
-		request.get(body, callback)
-	}, 500)
-
-}
-
 autoAccept()
-autoDecline()
-
-ipcMain.on('saveIgnored', (event, names) => {
-	ignoredDeclines = names
-})
 
 ipcMain.on('requestVersionCheck', (event) => {
 	request('https://raw.githubusercontent.com/hugogomess/league-scripts/master/version.json', (error, response, body) => {
