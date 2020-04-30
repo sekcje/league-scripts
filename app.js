@@ -1,6 +1,3 @@
-//
-// Copyright (c) 2018 by 4dams. All Rights Reserved.
-//
 var electron = require('electron')
 var url = require('url')
 var path = require('path')
@@ -35,6 +32,7 @@ var passwordAuth
 var requestUrl
 
 var clientFound = false;
+app.allowRendererProcessReuse = true;
 
 function getLocalSummoner() {
 
@@ -82,7 +80,8 @@ app.on('ready', function() {
 		frame: false,
 		resizable: false,
 		movable: true,
-		icon: path.join(__dirname, 'images/icon.png')
+		icon: path.join(__dirname, 'images/icon.png'),
+		webPreferences: { nodeIntegration: true }
 	})
 
 	// Load HTML file into the window
