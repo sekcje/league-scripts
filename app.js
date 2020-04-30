@@ -9,6 +9,7 @@ var APIClient = require("./src/routes")
 var Summoner = require("./src/summoner")
 var LocalSummoner
 var routes
+const env = process.env.NODE_ENV;
 
 // Setting default settings
 var autoAccept_enabled = false
@@ -93,8 +94,12 @@ app.on('ready', function() {
 	// Building Menu from template
 	const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
 
-	// Loading the menu to overwrite developer tools
-	// Menu.setApplicationMenu(mainMenu)
+
+	if (env != 'dev') {
+		// Loading the menu to overwrite developer tools
+		Menu.setApplicationMenu(mainMenu)
+	}
+	
 
 })
 
