@@ -32,7 +32,6 @@ var passwordAuth
 var requestUrl
 
 var clientFound = false;
-app.allowRendererProcessReuse = true;
 
 function getLocalSummoner() {
 
