@@ -94,7 +94,7 @@ app.on('ready', function() {
 	const mainMenu = Menu.buildFromTemplate(mainMenuTemplate)
 
 	// Loading the menu to overwrite developer tools
-	Menu.setApplicationMenu(mainMenu)
+	// Menu.setApplicationMenu(mainMenu)
 
 })
 
@@ -108,38 +108,12 @@ app.on('window-all-closed', () => {
 	app.quit()
 })
 
-ipcMain.on('reset', function() {
-	LocalSummoner.reset()
-})
-
 ipcMain.on('exit_app', function() {
 	app.quit()
 })
 
 ipcMain.on('minimize_app', function() {
 	mainWindow.minimize()
-})
-
-ipcMain.on('submitTierDivison', (event, tier, division) => {
-	if (!routes) return;
-	
-	let url = routes.Route("submitTierDivison")
-	let body = {
-		url: url,
-		"rejectUnauthorized": false,
-		headers: {
-			Authorization: routes.getAuth()
-		},
-		json: {
-			"lol": {
-				"rankedLeagueTier": tier,
-				"rankedLeagueDivision": division
-			}
-		}
-	}
-
-	request.put(body)
-
 })
 
 ipcMain.on('submitLevel', (event, level) => {
@@ -175,27 +149,6 @@ ipcMain.on('submitStatus', (event, status) => {
 		},
 		json: {
 			"statusMessage": status
-		}
-	}
-
-	request.put(body)
-
-})
-
-ipcMain.on('submitLeagueName', (event, leagueName) => {
-	if (!routes) return;
-
-	let url = routes.Route("submitLeagueName")
-	let body = {
-		url: url,
-		"rejectUnauthorized": false,
-		headers: {
-			Authorization: routes.getAuth()
-		},
-		json: {
-			"lol": {
-				"rankedLeagueName": leagueName
-			}
 		}
 	}
 
@@ -241,46 +194,6 @@ ipcMain.on('submitIcon', (event, icon) => {
 
 })
 
-ipcMain.on('submitSummoner', (event, name) => {
-	if (!routes) return;
-
-	let url = routes.Route("submitSummoner")
-	let body = {
-		url: url,
-		"rejectUnauthorized": false,
-		headers: {
-			Authorization: routes.getAuth()
-		},
-		json: {
-			"name": name
-		}
-	}
-
-	request.put(body, )
-
-})
-
-ipcMain.on('submitWinsLosses', (event, wins, losses) => {
-	if (!routes) return;
-
-	let url = routes.Route("submitWinsLosses")
-	let body = {
-		url: url,
-		"rejectUnauthorized": false,
-		headers: {
-			Authorization: routes.getAuth()
-		},
-		json: {
-			"lol": {
-				"rankedWins": wins.toString(),
-				"rankedLosses": losses.toString()
-			}
-		}
-	}
-
-	request.put(body)
-
-})
 
 ipcMain.on('profileUpdate', (event, wins, losses) => {
 	getLocalSummoner()
@@ -312,26 +225,6 @@ function IsJsonString(str) {
 	}
 	return true
 }
-
-ipcMain.on('submitLobby', (event, queueId, members) => {
-	if (!routes) return;
-
-	let url = routes.Route("submitSummoner")
-	let body = {
-		url: url,
-		"rejectUnauthorized": false,
-		headers: {
-			Authorization: routes.getAuth()
-		},
-		json: {
-			"lol": {
-				"pty": "{\"partyId\":\"404debc0-91a0-4b62-9335-aae99e6d8b48\",\"queueId\":" + queueId + ",\"summoners\":" + members + "}",
-			}
-		}
-	}
-
-	request.put(body)
-})
 
 var autoAccept = function() {
 	setInterval(function() {
@@ -433,9 +326,9 @@ ipcMain.on('saveIgnored', (event, names) => {
 })
 
 ipcMain.on('requestVersionCheck', (event) => {
-	request('https://raw.githubusercontent.com/4dams/LeagueToolkit/master/LeagueToolkit/version.json', (error, response, body) => {
+	request('https://raw.githubusercontent.com/hugogomess/league-scripts/master/version.json', (error, response, body) => {
 		var data = JSON.parse(body)
-		event.sender.send('versions', data["toolkit-version"], data["game-version"])
+		event.sender.send('versions', data["league-scripts-version"], data["game-version"])
 	})
 })
 

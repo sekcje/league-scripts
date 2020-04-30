@@ -78,59 +78,7 @@
 
         <div class="box ">
 
-          <!-- CUSTOM RANK -->
-          <div class="option">
-
-            <p class="option-name">Player Preview Card</p>
-
-            <p class="suboption-name">Custom Rank</p>
-
-            <div>
-
-              <div class="float-left">
-                <select onchange="tierChange()" id="tier" class="dropdown tier center-area">
-                  <option value="UNRANKED">Unranked</option>
-                  <option value="BRONZE">Bronze</option>
-                  <option value="SILVER">Silver</option>
-                  <option value="GOLD">Gold</option>
-                  <option value="PLATINUM">Platinum</option>
-                  <option value="DIAMOND">Diamond</option>
-                  <option value="MASTER">Master</option>
-                  <option value="CHALLENGER">Challenger</option>
-                  <option value="" disabled>––––––––––––––</option>
-                  <option value="GOTCHA">Empty</option>
-                  <option value="UNDEFINED">Undefined</option>
-                </select>
-              </div>
-              <div>
-                <select onchange="divisionChange()" id="division" class="dropdown division center-area">
-                  <option value="V">V</option>
-                  <option value="IV">IV</option>
-                  <option value="III">III</option>
-                  <option value="II">II</option>
-                  <option value="I">I</option>
-                  <option value="">–</option>
-                </select>
-              </div>
-
-            </div>
-
-            <button type="button" onClick="submitTierDivison()">Save</button>
-
-          </div>
-
-          <!-- CUSTOM LEVEL -->
-          <div class="option">
-
-            <p class="suboption-name">Custom Level</p>
-
-            <div>
-              <textarea rows="1" cols="10" placeholder="1337" id="level"></textarea>
-            </div>
-
-            <button type="button" onClick="submitLevel()">Save</button>
-
-          </div>
+          <p class="option-name">Player Preview Card</p>
 
           <!-- CUSTOM STATUS MESSAGE -->
           <div class="option">
@@ -138,7 +86,7 @@
             <p class="suboption-name">Custom Status Message (infinite length)</p>
 
             <div>
-              <textarea rows="2" cols="35" placeholder="Most dedicated support player EUW!" id="status"></textarea>
+              <textarea rows="2" cols="35" placeholder="how many text you want..." id="status"></textarea>
             </div>
 
             <div class="options float-left">
@@ -163,9 +111,6 @@
                 <option value="away">Do Not Disturb</option>
                 <option value="mobile">Mobile</option>
                 <option value="offline">Offline</option>
-                <option value="" disabled>In Queue</option>
-                <option value="" disabled>In Champ Select</option>
-                <option value="" disabled>In Game</option>
               </select>
             </div>
 
@@ -173,23 +118,10 @@
 
           </div>
 
-          <!-- CUSTOM SUMMONER NAME -->
-          <div class="option">
-
-            <p class="suboption-name">Custom Summoner Name (local)</p>
-
-            <div>
-              <textarea rows="1" cols="20" placeholder="Scarlet" id="summoner"></textarea>
-            </div>
-
-            <button type="button" onClick="submitSummoner()">Save</button>
-
-          </div>
-
           <!-- CUSTOM SUMMONER ICON -->
           <div class="option">
 
-            <p class="suboption-name">Custom Summoner Icon (local)</p>
+            <p class="suboption-name">Custom Summoner Icon</p>
 
             <div>
               <textarea rows="1" cols="20" placeholder="Icon ID" id="icon"></textarea>
@@ -199,77 +131,11 @@
 
           </div>
 
-          <p class="option-name">Game Lobby</p>
-
-          <!-- CUSTOM LOBBY ID -->
-          <div class="option">
-
-            <p class="suboption-name">Change Lobby Type</p>
-
-            <div>
-              <select id="queueId" class="dropdown">
-                <option value="430">Normal Blind Pick</option>
-                <option value="460">3v3 Normal Blind Pick</option>
-                <option value="400">Normal Draft Pick</option>
-                <option value="450">ARAM</option>
-                <option value="420">Ranked Solo/Duo</option>
-                <option value="440">Ranked Flex Game</option>
-                <option value="470">3v3 Ranked Flex Game</option>
-                <option value="83">Undefined</option>
-              </select>
-            </div>
-
-            <div>
-              <textarea rows="1" cols="20" placeholder="20673206 48609949 34037627" id="lobbyMembers"></textarea>
-            </div>
-
-            <button type="button" onClick="submitLobby()">Save</button>
-
-          </div>
-
-          <p class="option-name">Ranked Information</p>
-
-          <!-- CUSTOM RANKED LEAGUE NAME -->
-          <div class="option">
-
-            <p class="suboption-name">Custom Ranked League Name</p>
-
-            <div>
-              <textarea rows="1" cols="20" placeholder="Bard's Awesome Dudes" id="leagueName"></textarea>
-            </div>
-
-            <button type="button" onClick="submitLeagueName()">Save</button>
-
-          </div>
-
-          <!-- CUSTOM RANKED WINS/LOSSES -->
-          <div class="option">
-
-            <p class="suboption-name">Custom Ranked Wins/Losses</p>
-
-            <div>
-              <textarea rows="1" cols="5" placeholder="Wins" id="wins" class="float-left"></textarea> <textarea rows="1" cols="5" placeholder="Losses" id="losses"></textarea>
-            </div>
-
-            <button type="button" onClick="submitWinsLosses()">Save</button>
-
-          </div>
-
         </div>
 
       </div>
 
       <div id="Champ Select" class="tabcontent">
-
-        <!-- <div class="info">
-                    <img src="assets/ui/info.png" draggable="false">
-                    <img src="assets/maps/sr.png" class="summonericon" id="profileSummonerIcon" draggable="false">
-                    <p class="info-name" id="profileName">Updating...</p>
-                    <img src="assets/states/ingame.png" class="info-status" draggable="false">
-                    <p class="info-bp offset">SUMMONER'S RIFT</p>
-                    <p class="info-bp">Bard</p>
-                    <p class="info-bp">12:42</p>
-                </div> -->
 
         <div class="box">
 
@@ -291,7 +157,8 @@
 
           <p class="suboption-name">Ignored Summoners (Does not decline)</p>
           <div>
-            <textarea rows="2" cols="35" placeholder="Cedsi56, Ur Adc Hates Me, 4dams, ..." style="white-space: initial;" id="ignored"></textarea>
+            <textarea rows="2" cols="35" placeholder="Cedsi56, Ur Adc Hates Me, 4dams, ..."
+              style="white-space: initial;" id="ignored"></textarea>
           </div>
 
           <button type="button" onClick="saveIgnored()">Save</button>
@@ -300,32 +167,32 @@
 
           <!-- <p class="option-name">Champion Select</p>
 
-                    <p class="suboption-name">Auto Ban Champion</p>
-                    <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
-                    <div>
-                        <textarea rows="1" cols="25" placeholder="" disabled></textarea>
-                    </div>
-                    <div class="options">
-                        <label><input type="checkbox" disabled>Enabled</label>
-                    </div>
+          <p class="suboption-name">Auto Ban Champion</p>
+          <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
+          <div>
+            <textarea rows="1" cols="25" placeholder="" disabled></textarea>
+          </div>
+          <div class="options">
+            <label><input type="checkbox" disabled>Enabled</label>
+          </div>
 
-                    <p class="suboption-name">Auto Pick Champion</p>
-                    <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
-                    <div>
-                        <textarea rows="1" cols="25" placeholder="" disabled></textarea>
-                    </div>
-                    <div class="options">
-                        <label><input type="checkbox" disabled>Enabled</label>
-                    </div>
+          <p class="suboption-name">Auto Pick Champion</p>
+          <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
+          <div>
+            <textarea rows="1" cols="25" placeholder="" disabled></textarea>
+          </div>
+          <div class="options">
+            <label><input type="checkbox" disabled>Enabled</label>
+          </div>
 
-                    <p class="suboption-name">Auto Write Role</p>
-                    <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
-                    <div>
-                        <textarea rows="1" cols="25" placeholder="" disabled></textarea>
-                    </div>
-                    <div class="options">
-                        <label><input type="checkbox" disabled>Enabled</label>
-                    </div> -->
+          <p class="suboption-name">Auto Write Role</p>
+          <img src="assets/ui/warning.png" class="warning-sign" draggable="false">
+          <div>
+            <textarea rows="1" cols="25" placeholder="" disabled></textarea>
+          </div>
+          <div class="options">
+            <label><input type="checkbox" disabled>Enabled</label>
+          </div> -->
 
         </div>
 
@@ -341,9 +208,10 @@
 
           <p class="suboption-name">In-game chat Message</p>
           <div>
-            <textarea rows="4" cols="46" placeholder="This message will be send when i press a button" style="white-space: initial;" id="message"></textarea>
-          
-            <br/>
+            <textarea rows="4" cols="46" placeholder="This message will be send when i press a button"
+              style="white-space: initial;" id="message"></textarea>
+
+            <br />
 
             <select id="message-scoop" class="dropdown">
               <option value="*" selected disabled>Send To</option>
@@ -359,13 +227,13 @@
               <option value="NUMPAD3">NUMPAD 3</option>
             </select>
 
-            <br/>
+            <br />
 
             <div class="options">
               <label><input type="checkbox" onchange="">ASCII text</label>
             </div>
           </div>
-          
+
           <button type="button" onClick="">Save</button>
           <button type="button" onClick="">Start</button>
 

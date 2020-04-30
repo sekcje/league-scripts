@@ -21,15 +21,10 @@ class routes {
     }
     this.alias = {
       // lolchatv1me
-      reset: this.routes["lolchatv1me"],
-      submitTierDivison: this.routes["lolchatv1me"],
       submitLevel: this.routes["lolchatv1me"],
       submitStatus: this.routes["lolchatv1me"],
-      submitLeagueName: this.routes["lolchatv1me"],
       submitAvailability: this.routes["lolchatv1me"],
       submitIcon: this.routes["lolchatv1me"],
-      submitSummoner: this.routes["lolchatv1me"],
-      submitWinsLosses: this.routes["lolchatv1me"],
 
       // lolmatchmakinv1readycheck
       autoAccept: this.routes["lolmatchmakingv1readycheck"],

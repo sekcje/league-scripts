@@ -1,57 +1,21 @@
 var currentVersion = "0.4.1";
 var gameVersion;
-var repository = "https://github.com/4dams/LeagueToolkit";
+var repository = "https://github.com/hugogomess/league-scripts";
 
-const electron = require('electron')
-const {
-	ipcRenderer
-} = electron
+const electron = require('electron');
+const {	ipcRenderer } = electron;
 
-var isActive
+var isActive;
 
 var level;
 var icon;
 var summoner;
-var selectedTier = "UNRANKED"
-var selectedDivision = "V"
-var selectedLevel
-
-function tierChange() {
-	tier = document.getElementById("tier").value
-	selectedTier = tier
-}
-
-function divisionChange() {
-	division = document.getElementById("division").value
-	selectedDivision = division
-}
-
-function submitTierDivison() {
-
-	if (selectedTier == "GOTCHA") {
-		selectedDivision = "";
-	} else {
-		division = document.getElementById("division").value;
-		selectedDivision = division;
-	}
-
-	ipcRenderer.send('submitTierDivison', selectedTier, selectedDivision);
-}
-
-function submitLeagueName() {
-	leagueName = document.getElementById("leagueName").value;
-	ipcRenderer.send('submitLeagueName', leagueName);
-}
-
-let submitedLevel;
 
 function submitLevel() {
 	level = document.getElementById("level").value;
 	ipcRenderer.send('submitLevel', level);
 	document.getElementById("profileLevel").innerHTML = level;
 }
-
-
 
 var bold_italics = {
 	a: '\u{1d622}',
@@ -217,6 +181,7 @@ var bold = {
 	Y: '\u{1d5ec}',
 	Z: '\u{1d5ed}'
 }
+
 function submitStatus() {
 	status = document.getElementById("status").value;
 	let length = status.length;
@@ -277,39 +242,10 @@ function submitAvailability() {
 	ipcRenderer.send('submitAvailability', availability)
 }
 
-function submitSummoner() {
-	summoner = document.getElementById("summoner").value;
-	ipcRenderer.send('submitSummoner', summoner);
-	document.getElementById("profileName").innerHTML = summoner;
-}
-
-function submitLobby() {
-	queueId = document.getElementById("queueId").value
-	lobbyMembers = document.getElementById("lobbyMembers").value.split(" ")
-
-	if (lobbyMembers) {
-		processedMembers = lobbyMembers
-	} else {
-		processedMembers = []
-	}
-
-	ipcRenderer.send('submitLobby', queueId, processedMembers)
-}
-
 function submitIcon() {
 	icon = document.getElementById("icon").value;
 	ipcRenderer.send('submitIcon', icon);
 	document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (icon) + ".png";
-}
-
-function submitWinsLosses() {
-	wins = document.getElementById("wins").value
-	losses = document.getElementById("losses").value
-	ipcRenderer.send('submitWinsLosses', wins, losses);
-}
-
-function eventReset() {
-	ipcRenderer.send('reset');
 }
 
 function exit_app() {
@@ -321,6 +257,7 @@ function minimize_app() {
 }
 
 let clientIcon;
+
 async function profileUpdate() {
 	let data;
 
@@ -352,9 +289,7 @@ async function profileUpdate() {
 	}
 }
 
-/*
-    SECTIONS
-*/
+// SECTIONS
 
 function openTab(evt, tabName) {
 	// Declare all variables

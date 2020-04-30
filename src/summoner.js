@@ -130,42 +130,6 @@ class summoner {
 		return "";
 	}
 
-	reset() {
-		console.log("Starting reset.")
-		let url = this.APIRoutes.Route("reset");
-		let body = {
-			url: url,
-			"rejectUnauthorized": false,
-			headers: {
-				Authorization: this.APIRoutes.getAuth()
-			},
-			json: {
-				"availability": "chat",
-				"icon": this.iconID,
-				"id": this.ID,
-				"lastSeenOnlineTimestamp": (new Date().getTime()).toString(),
-				"lol": {
-					"level": this.level.toString(),
-					"mapId": "",
-					"rankedLeagueDivision": this.returnRomanDivision(this.division),
-					"rankedLeagueName": this.leagueName,
-					"rankedLeagueQueue": this.rankerQueue,
-					"rankedLeagueTier": this.rankedTier,
-					"rankedLosses": "0",
-					"rankedWins": this.wins.toString()
-				},
-				"name": this.name
-				// "statusMessage": "Most dedicated support player EUW!"
-			}
-		}
-		let callback = function(error, response, body) {
-			// console.log('error:', error);
-			// console.log('statusCode:', response && response.statusCode);
-			// console.log('body:', body);
-		};
-		this.request.put(body, callback);
-	}
-
 }
 
 module.exports = summoner;
