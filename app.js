@@ -200,10 +200,13 @@ ipcMain.on('submitIcon', (event, icon) => {
 })
 
 
-ipcMain.on('profileUpdate', (event, wins, losses) => {
+ipcMain.on('profileUpdate', (event) => {
 	getLocalSummoner()
-	if (!LocalSummoner) return;
-	event.returnValue = LocalSummoner.getProfileData()
+	if (LocalSummoner) {
+		event.returnValue = LocalSummoner.getProfileData();
+	} else {
+		event.returnValue = undefined;
+	}
 })
 
 ipcMain.on('autoAccept', (event, int) => {

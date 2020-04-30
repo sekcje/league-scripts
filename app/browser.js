@@ -49,6 +49,7 @@ async function profileUpdate() {
 
 	try {
 		data = ipcRenderer.sendSync("profileUpdate");
+
 		if (!data) return;
 
 		if (clientIcon) {
