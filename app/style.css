@@ -312,29 +312,8 @@ textarea:disabled {
   background-repeat: no-repeat;
 }
 
-.dropdown:active {
-  background: rgba(30, 35, 40, 0.5);
-  color: #463714;
-  border: 1px solid #463714;
-
-  /* Arrow */
-  background-image:
-    linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position:
-    calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px),
-    calc(100% - 2.5em) 0.5em;
-  background-size:
-    5px 5px,
-    5px 5px,
-    1px 1.5em;
-  background-repeat: no-repeat;
-}
-
 .dropdown:focus {
-  background: linear-gradient(to top, rgba(88, 83, 66, 0.5), rgba(30, 35, 40, 0.5));
+  /*background: linear-gradient(to top, rgba(88, 83, 66, 0.5), rgba(30, 35, 40, 0.5));*/
   border: 1px solid transparent;
   border-image: linear-gradient(to top, #c89b3c, #f0e6d2) 1;
 

@@ -58,13 +58,9 @@ async function profileUpdate() {
 			}
 		} else {
 			clientIcon = data.iconID;
-			let rankedTier = data.rankedTier || document.getElementById("profileRankedTier").innerHTML || "Not logged in.";
-			let leagueName = data.leagueName || document.getElementById("profileLeagueName").innerHTML || "";
 			let profileLevel = (data.level) || document.getElementById("profileWL").innerHTML || "";
 
 			document.getElementById("profileName").innerHTML = summoner || data.name;
-			document.getElementById("profileRankedTier").innerHTML = rankedTier != "undefined" ? rankedTier : "Unranked";
-			document.getElementById("profileLeagueName").innerHTML = leagueName != "undefined" ? leagueName : "Unranked";
 			document.getElementById("profileLevel").innerHTML = level || profileLevel;
 			document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (icon || data.iconID || "1") + ".png";
 		}
