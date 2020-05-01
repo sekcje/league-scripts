@@ -54,7 +54,6 @@ async function profileUpdate() {
 		} else {
 			clientIcon = data.iconID;
 			let profileLevel = (data.level) || "";
-
 			document.getElementById("profileName").innerHTML = summoner || data.name;
 			document.getElementById("profileLevel").innerHTML = level || profileLevel;
 			document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (icon || data.iconID || "1") + ".png";
