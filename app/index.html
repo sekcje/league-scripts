@@ -135,8 +135,11 @@
 
           <p class="suboption-name">Automatically Accept</p>
           <div class="options">
-            <label><input type="checkbox" onchange="toggleAutoAccept(this)">Enabled</label>
+            <input id="auto-queue-accept" type="checkbox" onchange="toggleAutoAccept(this)">
+            <label for="auto-queue-accept">Enable</label>
           </div>
+
+          
 
           <!-- CHAMP SELECT -->
 
@@ -205,7 +208,8 @@
             <br />
 
             <div class="options">
-              <label><input type="checkbox" onchange="">ASCII text</label>
+              <input id="ascii-text" type="checkbox" onchange="">
+              <label for="ascii-text">ASCII text</label>
             </div>
           </div>
 
