@@ -1,6 +1,6 @@
 {
 	"name": "league-scripts",
-	"version": "0.4.2",
+	"version": "0.6.3",
 	"description": "A set of useful league of legends scripts",
 	"main": "app.js",
 	"scripts": {
