@@ -14,12 +14,12 @@ var summoner;
 
 function submitStatus() {
 	status = document.getElementById("status").value;
-	ipcRenderer.send('submitStatus', status)
+	ipcRenderer.send('submitStatus', status);
 }
 
 function submitAvailability() {
-	availability = document.getElementById("availability").value
-	ipcRenderer.send('submitAvailability', availability)
+	availability = document.getElementById("availability").value;
+	ipcRenderer.send('submitAvailability', availability);
 }
 
 function exit_app() {
@@ -67,78 +67,78 @@ async function profileUpdate() {
 
 function openTab(evt, tabName) {
 	// Declare all variables
-	var i, tabcontent, tablinks
+	var i, tabcontent, tablinks;
 
 	if (tabName == "Home") {
-		document.getElementById("selected").style.marginLeft = "0px"
+		document.getElementById("selected").style.marginLeft = "0px";
 	}
 
 	if (tabName == "Profile") {
-		document.getElementById("selected").style.marginLeft = "120px"
+		document.getElementById("selected").style.marginLeft = "120px";
 	}
 
 	if (tabName == "Champ Select") {
-		document.getElementById("selected").style.marginLeft = "278px"
+		document.getElementById("selected").style.marginLeft = "278px";
 	}
 
 	if (tabName == "Scripts") {
-		document.getElementById("selected").style.marginLeft = "435px"
+		document.getElementById("selected").style.marginLeft = "435px";
 	}
 
 	// Get all elements with class="tabcontent" and hide them
-	tabcontent = document.getElementsByClassName("tabcontent")
+	tabcontent = document.getElementsByClassName("tabcontent");
 	for (i = 0; i < tabcontent.length; i++) {
-		tabcontent[i].style.display = "none"
+		tabcontent[i].style.display = "none";
 	}
 
 	// Get all elements with class="tablinks" and remove the class "active"
-	tablinks = document.getElementsByClassName("tablinks")
+	tablinks = document.getElementsByClassName("tablinks");
 	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].className = tablinks[i].className.replace(" active", "")
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
 	}
 
 	// Show the current tab, and add an "active" class to the button that opened the tab
-	document.getElementById(tabName).style.display = "block"
-	evt.currentTarget.className += " active"
+	document.getElementById(tabName).style.display = "block";
+	evt.currentTarget.className += " active";
 }
 
 
 // Event listeners
 
 function autoUpdate() {
-	isActive = true
+	isActive = true;
 	setTimeout(function() {
 		setInterval(function() {
-			if (!isActive) return
-			profileUpdate()
+			if (!isActive) return;
+			profileUpdate();
 		}, 5000)
 		profileUpdate();
 	}, 2000)
 }
 
-window.addEventListener("load", autoUpdate, false)
+window.addEventListener("load", autoUpdate, false);
 
 
 window.onfocus = function() {
-	isActive = true
+	isActive = true;
 }
 
 window.onblur = function() {
-	isActive = false
+	isActive = false;
 }
 
 function toggleAutoAccept(element) {
 	if (element.checked) {
-		ipcRenderer.send('autoAccept', true)
+		ipcRenderer.send('autoAccept', true);
 	} else {
-		ipcRenderer.send('autoAccept', false)
+		ipcRenderer.send('autoAccept', false);
 	}
 }
 
 
-ipcRenderer.send('requestVersionCheck')
+ipcRenderer.send('requestVersionCheck');
 setInterval(function() {
-	ipcRenderer.send('requestVersionCheck')
+	ipcRenderer.send('requestVersionCheck');
 }, 30000)
 
 

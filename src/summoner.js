@@ -7,7 +7,7 @@ class summoner {
 		// class data
 
 		if (!this.IsJsonString(data)) return;
-		data = JSON.parse(data)
+		data = JSON.parse(data);
 		this.APIRoutes = APIRoutes;
 		this.level = this.level || data.summonerLevel;
 		this.name = this.name || data.displayName;
@@ -29,8 +29,8 @@ class summoner {
 			name: this.name,
 			iconID: this.iconID,
 			level: this.level
-		}
-		return arr
+		};
+		return arr;
 	}
 }
 
