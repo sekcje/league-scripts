@@ -142,8 +142,8 @@ setInterval(function() {
 }, 30000)
 
 
-function openGithub() {
-	ipcRenderer.send('openGitRepository');
+function openReleases() {
+	electron.shell.openExternal("https://github.com/hugogomess/league-scripts/releases");
 }
 
 ipcRenderer.on('versions', (event, appVersion, leagueGameVersion) => {

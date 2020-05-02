@@ -33,7 +33,7 @@ First you need to install NodeJS and NPM.
    $ npm install
    ```
 
-3. Set dev environment variable: NODE_ENV=dev
+3. If you want to use developer tools with crtl + shift + i set dev environment variable: NODE_ENV=dev
 
 4. Start app:
 
