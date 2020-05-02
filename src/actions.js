@@ -51,10 +51,8 @@ class actions {
 	setAutoAccept(int) {
 		if (int) {
 			autoAcceptEnabled = true;
-			console.log(autoAcceptEnabled)
 		} else {
 			autoAcceptEnabled = false;
-			console.log(autoAcceptEnabled)
 		}
 	}
 

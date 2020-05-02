@@ -1,6 +1,20 @@
-# LeagueScripts
+<p align="center">
+  <img src="images/logo.png"><br>
+  <b>Useful Links:</b><br>
+  <a href="https://engineering.riotgames.com/news/architecture-league-client-update">Inspiration</a> |
+  <a href="https://leaguescripts.io/#preview">Preview</a> |
+  <a href="https://leaguescripts.io/#features">Features</a>
+  <br>
+  <a href="https://github.com/hugogomess/league-scripts/releases" style="text-decoration: underline;"><b>Latest Release</b></a>
+  <br>
+</p>
 
 LeagueScripts is a fork from [LeagueToolkit](https://github.com/4dams/LeagueToolkit), different from the original project this application is a set of useful scripts like an auto queue accept, an automatic chat message whenever you press a configured button, changes the lol language or show your mastery emote whenever you use the zed ultimate for example..
+
+## Preview
+
+![Preview](./images/previews/home.png)
+![Preview](./images/previews/profile.png)
 
 ## Acknowledgments
 
