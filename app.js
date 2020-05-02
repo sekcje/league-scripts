@@ -157,25 +157,6 @@ ipcMain.on('submitAvailability', (event, availability) => {
 
 })
 
-ipcMain.on('submitIcon', (event, icon) => {
-	if (!routes) return;
-
-	let url = routes.Route("submitIcon")
-	let body = {
-		url: url,
-		"rejectUnauthorized": false,
-		headers: {
-			Authorization: routes.getAuth()
-		},
-		json: {
-			"icon": icon
-		}
-	}
-
-	request.put(body)
-
-})
-
 
 ipcMain.on('profileUpdate', (event) => {
 	getLocalSummoner()

@@ -22,12 +22,6 @@ function submitAvailability() {
 	ipcRenderer.send('submitAvailability', availability)
 }
 
-function submitIcon() {
-	icon = document.getElementById("icon").value;
-	ipcRenderer.send('submitIcon', icon);
-	document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (icon) + ".png";
-}
-
 function exit_app() {
 	ipcRenderer.send('exit_app');
 }
@@ -49,14 +43,18 @@ async function profileUpdate() {
 		if (clientIcon) {
 			if (clientIcon !== data.iconID) {
 				document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + data.iconID + ".png";
+				document.getElementById("profileSummonerIconScriptsTab").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + data.iconID + ".png";
 				clientIcon = data.iconID;
 			}
 		} else {
 			clientIcon = data.iconID;
 			let profileLevel = (data.level) || "";
 			document.getElementById("profileName").innerHTML = summoner || data.name;
+			document.getElementById("profileNameScriptsTab").innerHTML = summoner || data.name;
 			document.getElementById("profileLevel").innerHTML = level || profileLevel;
+			document.getElementById("profileLevelScriptsTab").innerHTML = level || profileLevel;
 			document.getElementById("profileSummonerIcon").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (icon || data.iconID || "1") + ".png";
+			document.getElementById("profileSummonerIconScriptsTab").src = "http://ddragon.leagueoflegends.com/cdn/" + gameVersion + "/img/profileicon/" + (icon || data.iconID || "1") + ".png";
 		}
 		
 
