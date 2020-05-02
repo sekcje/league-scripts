@@ -9,12 +9,42 @@
   <br>
 </p>
 
-LeagueScripts is a fork from [LeagueToolkit](https://github.com/4dams/LeagueToolkit), different from the original project this application is a set of useful scripts like an auto queue accept, an automatic chat message whenever you press a configured button, changes the lol language or show your mastery emote whenever you use the zed ultimate for example..
+League Scripts is a fork from [LeagueToolkit](https://github.com/4dams/LeagueToolkit), different from the original project this application is a set of useful scripts like an auto queue accept for example. For more info access [leaguescripts.io](https://leaguescripts.io)
 
 ## Preview
 
 ![Preview](./images/previews/home.png)
 ![Preview](./images/previews/profile.png)
+
+## How to dev
+
+First you need to install NodeJS and NPM.
+
+1. Install electronjs:
+
+   ```console
+   $ npm install -g electron
+   ```
+
+2. Install all dependencies, in project root directory: 
+	
+	```console
+   $ npm install
+   ```
+
+3. Set dev environment variable: NODE_ENV=dev
+
+4. Start app:
+
+   ```console
+   $ npm start
+   ```
+
+## Contributions
+
+<a href="https://github.com/hugogomess"><img src="https://avatars3.githubusercontent.com/u/30708062" title="hugogomess" width="72" height="72"></a>
+<a href="https://github.com/4dams"><img src="https://avatars1.githubusercontent.com/u/28960614" title="4dams" width="72" height="72"></a>
+<a href="https://github.com/Xh4H"><img src="https://avatars2.githubusercontent.com/u/20613820" title="Xh4H" width="72" height="72"></a>
 
 ## Acknowledgments
 
