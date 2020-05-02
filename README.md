@@ -59,6 +59,5 @@ First you need to install NodeJS and NPM.
 
 If this project help you and you want to help us to continue the project you can give us a donantion :)
 <br/>
-<p align="center">
-	[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HX4ZA6BYJWESJ&source=url)
-</p>
+<br/>
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HX4ZA6BYJWESJ&source=url)
