@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/logo.png"><br>
+  <img src="images/logo.png" href="https://leaguescripts.io/"><br>
   <b>Useful Links:</b><br>
   <a href="https://engineering.riotgames.com/news/architecture-league-client-update">Inspiration</a> |
   <a href="https://leaguescripts.io/#preview">Preview</a> |
