@@ -1,18 +1,17 @@
-var electron = require('electron');
-var url = require('url');
-var path = require('path');
-var request = require('request');
-var LCUConnector = require('lcu-connector');
-var connector = new LCUConnector();
+const electron = require('electron');
+const url = require('url');
+const path = require('path');
+const request = require('request');
+const LCUConnector = require('lcu-connector');
+const connector = new LCUConnector();
 
-var APIClient = require("./src/routes");
-var Summoner = require("./src/summoner");
+const APIClient = require('./src/routes');
+const Summoner = require("./src/summoner");
+const Actions = require('./src/actions');
+const actions = new Actions();
 var LocalSummoner;
 var routes;
 const env = process.env.NODE_ENV;
-
-// Setting default settings
-var autoAccept_enabled = false;
 
 // Extracting some stuff from electron
 const {
@@ -32,8 +31,7 @@ var requestUrl;
 
 var clientFound = false;
 
-function getLocalSummoner() {
-
+function getLocalSummoner(routes) {
 	if (!routes) {
 		console.log("League of Legends client not found.");
 	} else {
@@ -59,13 +57,14 @@ connector.on('connect', (data) => {
 	requestUrl = data.protocol + '://' + data.address + ':' + data.port;
 	routes = new APIClient(requestUrl, data.username, data.password);
 
-	getLocalSummoner();
+	getLocalSummoner(routes);
 
 	userAuth = data.username;
 	passwordAuth = data.password;
 
 	console.log('Request base url set to: ' + routes.getAPIBase());
 	clientFound = true;
+	actions.autoAccept(routes);
 })
 
 // Listen for the app to be ready
@@ -120,46 +119,16 @@ ipcMain.on('minimize_app', function() {
 })
 
 ipcMain.on('submitStatus', (event, status) => {
-	if (!routes) return;
-
-	let url = routes.Route("submitStatus");
-	let body = {
-		url: url,
-		"rejectUnauthorized": false,
-		headers: {
-			Authorization: routes.getAuth()
-		},
-		json: {
-			"statusMessage": status
-		}
-	}
-
-	request.put(body);
-
+	actions.submitStatus(event, status, routes);
 })
 
 ipcMain.on('submitAvailability', (event, availability) => {
-	if (!routes) return;
-
-	let url = routes.Route("submitAvailability");
-	let body = {
-		url: url,
-		"rejectUnauthorized": false,
-		headers: {
-			Authorization: routes.getAuth()
-		},
-		json: {
-			"availability": availability
-		}
-	}
-
-	request.put(body);
-
+	actions.submitAvailability(event, availability, routes);
 })
 
 
 ipcMain.on('profileUpdate', (event) => {
-	getLocalSummoner();
+	getLocalSummoner(routes);
 	if (LocalSummoner) {
 		event.returnValue = LocalSummoner.getProfileData();
 	} else {
@@ -168,73 +137,11 @@ ipcMain.on('profileUpdate', (event) => {
 })
 
 ipcMain.on('autoAccept', (event, int) => {
-	if (int) {
-		autoAccept_enabled = true;
-	} else {
-		autoAccept_enabled = false;
-	}
+	actions.setAutoAccept(int);
 })
 
-function IsJsonString(str) {
-	try {
-		JSON.parse(str);
-	} catch (e) {
-		return false;
-	}
-	return true;
-}
-
-var autoAccept = function() {
-	setInterval(function() {
-		if (!routes) return;
-
-		let url = routes.Route("autoAccept");
-		let body = {
-			url: url,
-			"rejectUnauthorized": false,
-			headers: {
-				Authorization: routes.getAuth()
-			},
-		}
-
-		let callback = function(error, response, body) {
-			if (!body || !IsJsonString(body)) return;
-			var data = JSON.parse(body);
-
-			if (data["state"] === "InProgress") {
-
-				if (data["playerResponse"] === "None") {
-					let acceptUrl = routes.Route("accept");
-					let acceptBody = {
-						url: acceptUrl,
-						"rejectUnauthorized": false,
-						headers: {
-							Authorization: routes.getAuth()
-						},
-						json: {}
-					}
-
-					let acceptCallback = function(error, response, body) {}
-
-					if (autoAccept_enabled) {
-						request.post(acceptBody, acceptCallback);
-					}
-
-				}
-			}
-		}
-
-		request.get(body, callback);
-	}, 1000)
-}
-
-autoAccept()
-
 ipcMain.on('requestVersionCheck', (event) => {
-	request('https://raw.githubusercontent.com/hugogomess/league-scripts/master/version.json', (error, response, body) => {
-		var data = JSON.parse(body);
-		event.sender.send('versions', data["league-scripts-version"], data["game-version"]);
-	})
+	actions.requestVersionCheck(event);
 })
 
 var searchClient = setInterval(function() {
