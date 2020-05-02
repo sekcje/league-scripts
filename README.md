@@ -49,7 +49,7 @@ First you need to install NodeJS and NPM.
 
 ## Acknowledgments
 
-* LeagueToolkit original project by [4adams](https://github.com/4dams)
+* LeagueToolkit original project by [4dams](https://github.com/4dams)
 * Connecting via [LCU Connector](https://www.npmjs.com/package/lcu-connector)
 * Material icons provided by [Material.io](https://material.io/icons/)
 * Design concepts by [React-Hextech](https://github.com/LeagueDevelopers/react-hextech)
