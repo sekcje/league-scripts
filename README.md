@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="images/logo.png" href="https://leaguescripts.io/"><br>
+  <a href="https://leaguescripts.io/" target="_blank"><img src="images/logo.png"></a><br>
   <b>Useful Links:</b><br>
-  <a href="https://engineering.riotgames.com/news/architecture-league-client-update">Inspiration</a> |
-  <a href="https://leaguescripts.io/#preview">Preview</a> |
-  <a href="https://leaguescripts.io/#features">Features</a>
+  <a href="https://engineering.riotgames.com/news/architecture-league-client-update" target="_blank">Inspiration</a> |
+  <a href="https://leaguescripts.io/#preview" target="_blank">Preview</a> |
+  <a href="https://leaguescripts.io/#features" target="_blank">Features</a>
   <br>
-  <a href="https://github.com/hugogomess/league-scripts/releases" style="text-decoration: underline;"><b>Latest Release</b></a>
+  <a href="https://github.com/hugogomess/league-scripts/releases" target="_blank" style="text-decoration: underline;"><b>Latest Release</b></a>
   <br>
 </p>
 
