@@ -43,7 +43,7 @@ function getLocalSummoner() {
 			url: url,
 			"rejectUnauthorized": false,
 			headers: {
-				Authorization: routes.getAuth();
+				Authorization: routes.getAuth()
 			}
 		}
 
@@ -127,7 +127,7 @@ ipcMain.on('submitStatus', (event, status) => {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: routes.getAuth();
+			Authorization: routes.getAuth()
 		},
 		json: {
 			"statusMessage": status
@@ -146,7 +146,7 @@ ipcMain.on('submitAvailability', (event, availability) => {
 		url: url,
 		"rejectUnauthorized": false,
 		headers: {
-			Authorization: routes.getAuth();
+			Authorization: routes.getAuth()
 		},
 		json: {
 			"availability": availability
@@ -193,7 +193,7 @@ var autoAccept = function() {
 			url: url,
 			"rejectUnauthorized": false,
 			headers: {
-				Authorization: routes.getAuth();
+				Authorization: routes.getAuth()
 			},
 		}
 
@@ -209,7 +209,7 @@ var autoAccept = function() {
 						url: acceptUrl,
 						"rejectUnauthorized": false,
 						headers: {
-							Authorization: routes.getAuth();
+							Authorization: routes.getAuth()
 						},
 						json: {}
 					}
