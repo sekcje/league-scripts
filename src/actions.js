@@ -1,5 +1,5 @@
 const request = require('request');
-var autoAcceptEnabled = false;
+var autoQueueAcceptEnabled = false;
 
 class actions {
 
@@ -48,15 +48,15 @@ class actions {
 		})
 	}
 
-	setAutoAccept(int) {
+	setAutoQueueAccept(int) {
 		if (int) {
-			autoAcceptEnabled = true;
+			autoQueueAcceptEnabled = true;
 		} else {
-			autoAcceptEnabled = false;
+			autoQueueAcceptEnabled = false;
 		}
 	}
 
-	autoAccept(routes) {
+	startAutoQueueAccept(routes) {
 		var routes = routes;
 
 		function IsJsonString(str) {
@@ -70,7 +70,7 @@ class actions {
 		
 		setInterval(function() {
 			if (!routes) return;
-			let url = routes.Route("autoAccept");
+			let url = routes.Route("autoQueueAccept");
 			let body = {
 				url: url,
 				"rejectUnauthorized": false,
@@ -97,7 +97,7 @@ class actions {
 						}
 
 						let acceptCallback = function(error, response, body) {}
-						if (autoAcceptEnabled) {
+						if (autoQueueAcceptEnabled) {
 							request.post(acceptBody, acceptCallback);
 						}
 

@@ -24,7 +24,7 @@ class routes {
       submitIcon: this.routes["lolchatv1me"],
 
       // lolmatchmakingv1readycheck
-      autoAccept: this.routes["lolmatchmakingv1readycheck"],
+      autoQueueAccept: this.routes["lolmatchmakingv1readycheck"],
       accept: this.routes["lolmatchmakingv1readycheckaccept"],
 
       // lolsummonerv1currentsummoner

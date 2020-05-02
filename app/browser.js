@@ -127,11 +127,11 @@ window.onblur = function() {
 	isActive = false;
 }
 
-function toggleAutoAccept(element) {
+function toggleAutoQueueAccept(element) {
 	if (element.checked) {
-		ipcRenderer.send('autoAccept', true);
+		ipcRenderer.send('autoQueueAccept', true);
 	} else {
-		ipcRenderer.send('autoAccept', false);
+		ipcRenderer.send('autoQueueAccept', false);
 	}
 }
 

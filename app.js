@@ -64,7 +64,7 @@ connector.on('connect', (data) => {
 
 	console.log('Request base url set to: ' + routes.getAPIBase());
 	clientFound = true;
-	actions.autoAccept(routes);
+	actions.startAutoQueueAccept(routes);
 })
 
 // Listen for the app to be ready
@@ -136,8 +136,8 @@ ipcMain.on('profileUpdate', (event) => {
 	}
 })
 
-ipcMain.on('autoAccept', (event, int) => {
-	actions.setAutoAccept(int);
+ipcMain.on('autoQueueAccept', (event, int) => {
+	actions.setAutoQueueAccept(int);
 })
 
 ipcMain.on('requestVersionCheck', (event) => {
