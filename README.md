@@ -1,3 +1,4 @@
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HX4ZA6BYJWESJ&source=url)
 <p align="center">
   <a href="https://leaguescripts.io/" target="_blank"><img src="images/logo.png"></a><br>
   <b>Useful Links:</b><br>
@@ -53,3 +54,8 @@ First you need to install NodeJS and NPM.
 * Material icons provided by [Material.io](https://material.io/icons/)
 * Design concepts by [React-Hextech](https://github.com/LeagueDevelopers/react-hextech)
 * Made possible thanks to [Electron](https://electronjs.org/)
+
+## Donation
+
+If this project help you and you want to help us to continue the project you can give us a donantion :)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HX4ZA6BYJWESJ&source=url)
