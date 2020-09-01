@@ -8,10 +8,11 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "electron app.js"
 	},
-	"author": "hugogomess http://github.com/hugogomess",
+	"author": "sekcje http://github.com/sekcje",
 	"contributors": [
 		"PurgePJ <juanjimenezbleye@protonmail.com>",
 		"4adams http://github.com/4adams"
+		"hugogomess http://github.com/hugogomess"
 	],
 	"license": "MIT",
 	"dependencies": {
